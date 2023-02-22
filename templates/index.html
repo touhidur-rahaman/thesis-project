@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predict Salary Analysis</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+      <label for="area">Choose your area:</label>
+      <select name="area" id="area">
+        <option value="1">Rampurar</option>
+        <option value="2">Bashabo</option>
+        <option value="3">Mohammadpur</option>
+        <option value="4">Dhanmondi</option>
+        <option value="5">Mirpur</option>
+        <option value="6">Banasree</option>
+      </select>
+
+      <!-- <input type="text" name="area" placeholder="area" required="required" /> -->
+      <input type="text" name="type" placeholder="type" required="required" />
+		  <input type="text" name="bed" placeholder="bed" required="required" />
+      <input type="text" name="bath" placeholder="bath" required="required" />
+      <input type="text" name="sqft" placeholder="sqft" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
