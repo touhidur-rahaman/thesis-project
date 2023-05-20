@@ -9,6 +9,11 @@ model = pickle.load(open('apartment-model.pkl', 'rb'))
 def home():
     return render_template('index.html')
 
+@app.route('/gettest')
+def gettest():
+    return 'some words'
+
+
 @app.route('/predict',methods=['POST'])
 def predict():
     '''
